@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzzle Game</title>
+        <link href="css/style.css" rel="stylesheet" />
+        <link rel="stylesheet" href="build/tailwind.css">
+        <link href="css/image-puzzle.css" rel="stylesheet" />
+        <script src="js/jquery-2.1.1.min.js"></script>
+        <script src="js/jquery-ui.js"></script>
+        <script src="js/image-puzzle.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+            integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+            crossorigin="anonymous" />
+</head>
+<body>
+    <!-------------------------------------------Background------------------------------------------------>
+    <div id="collage" class="w-screen p-10 h-full bg-repeat-y" style="background-image: url(img/bg1.jpg);">
+        <!--2nd BG-->
+        <div class="bg-white border-8 border-blue-400 bg-opacity-60 rounded-lg border-opacity-40 p-4">
+            <!---Logo--->
+            <div class="flex justify-center lg:justify-end">
+                <img class="h-20 md:h-40" src="img/logo1.png" alt="logo">
+            </div>
+            <h1 class="lg:-mt-28 text-center text-4xl md:text-6xl font-bold text-blue-500 pb-10">Puzzle Game</h1>
+            <!--Grids-->
+            <div class="grid items-center justify-center xl:grid-flow-col xl:grid-cols-2 xl:gap-5">
+                <!--LEFT SIDE-->
+                <div>
+                    <div id="actualImageBox" class="flex flex-row items-center justify-center space-x-20 text-xl font-semibold text-black py-4">
+                        <div id="stepBox"> Count:
+                        <div class="inline-block stepCount bg-color-white">0</div>
+                        </div>
+                        <div id="timeBox">Time:
+                            <span id="timerPanel"></span> seconds
+                        </div>
+                    </div>
+                    
+                    <img id="actualImage" class="border-4 border-blue-400 p-4 items-center w-full m-auto">
+                   
+                    <div class="flex py-4 justify-evenly">
+                        <button id="btnRule"
+                            class="px-3 py-2 font-semibold bg-gradient-to-t from-blue-400 to-gray-400 rounded-md hover:bg-pink-500 text-white text-xl"
+                            onclick="rules();">Rules</button>
+                        <button id="newPhoto"
+                            class="px-4 py-2 font-semibold bg-gradient-to-t from-blue-400 to-gray-400 rounded-md hover:bg-blue-700 text-white text-xl">Next Picture</button>
+                    </div>
+                </div>
+                <!--Right Side-->
+                <div class="flex justify-center items-center bg-blue-400 bg-opacity-60">
+                    <ul id="sortable" class="grid grid-cols-4 inline-block lg:p-12 xl:p-10 list-none ">
+                        <li id="sortable" class="cursor-pointer">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div><!--end 2nd bg-->
+    </div><!--end of bg-->
+    <div id="gameOver" class="hidden">
+        <div
+            class="px-2 py-2 space-y-4 text-xl text-center bg-gradient-to-r from-gray-400 to-blue-500">
+            <div> Game over !!</div>
+            <div> Congratulations!! You got the picture ready.</div>
+            <div> MOVES: <span class="stepCount">0</span> </div>
+            <div> Time spent: <span class="timeCount">0</span> seconds</span> </div>
+            <div> <button class="px-3 py-2 font-semibold bg-gradient-to-r from-blue-500 to-gray-400 rounded-md hover:bg-blue-500 text-white" type="button" onclick="window.location.reload(true);">Play more</button> </div>
+
+        </div>
+    </div>
+    <script>
+        var images = [
+            { src: 'img/game-a.jpg', title: 'Go Live'},
+            {src: 'img/game-b.jpg', title: 'AMI Group'},
+            { src: 'img/game-c.jpg', title: 'Dynamic'},
+            { src: 'img/game-d.jpg', title: 'Origami'},
+            { src: 'img/game-e.jpg', title: 'All Brands'},
+        ];
+
+        $(function () {
+            var gridSize = $('#levelPanel :radio:checked').val();
+            imagePuzzle.startGame(images, gridSize);
+            $('#newPhoto').click(function () {
+                var gridSize = $('#levelPanel :radio:checked').val();
+                imagePuzzle.startGame(images, gridSize);
+            });
+
+            $('#levelPanel :radio').change(function (e) {
+                var gridSize = $(this).val();
+                imagePuzzle.startGame(images, gridSize);
+            });
+        });
+        function rules() {
+            alert('Rearrange the pieces so that you get a sample image. \nThe steps taken are counted');
+        }
+    </script>
+</body>
+</html>
