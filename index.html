@@ -17,19 +17,19 @@
 </head>
 <body>
     <!-------------------------------------------Background------------------------------------------------>
-    <div id="collage" class="w-screen p-10 h-full bg-repeat-y" style="background-image: url(img/bg1.jpg);">
+    <div id="collage" class="flex items-center justify-center w-screen h-screen bg-cover bg-repeat-y" style="background-image: url(img/bg1.jpg);">
         <!--2nd BG-->
-        <div class="bg-white border-8 border-blue-400 bg-opacity-60 rounded-lg border-opacity-40 p-4">
+        <div class="p-4 bg-white border-8 border-blue-400 rounded-lg bg-opacity-60 border-opacity-40">
             <!---Logo--->
             <div class="flex justify-center lg:justify-end">
                 <img class="h-20 md:h-40" src="img/logo1.png" alt="logo">
             </div>
-            <h1 class="lg:-mt-28 text-center text-4xl md:text-6xl font-bold text-blue-500 pb-10">Puzzle Game</h1>
+            <h1 class="pb-10 text-4xl font-bold text-center text-blue-500 xl:-mt-28 md:text-6xl">Puzzle Game</h1>
             <!--Grids-->
             <div class="grid items-center justify-center xl:grid-flow-col xl:grid-cols-2 xl:gap-5">
                 <!--LEFT SIDE-->
                 <div>
-                    <div id="actualImageBox" class="flex flex-row items-center justify-center space-x-20 text-xl font-semibold text-black py-4">
+                    <div id="actualImageBox" class="flex flex-row items-center justify-center py-4 space-x-20 text-xl font-semibold text-black">
                         <div id="stepBox"> Count:
                         <div class="inline-block stepCount bg-color-white">0</div>
                         </div>
@@ -37,23 +37,25 @@
                             <span id="timerPanel"></span> seconds
                         </div>
                     </div>
-                    
-                    <img id="actualImage" class="border-4 border-blue-400 p-4 items-center w-full m-auto">
-                   
-                    <div class="flex py-4 justify-evenly">
+
+                    <img id="actualImage" class="items-center w-auto h-52 md:h-72 p-6 m-auto border-4 border-blue-400">
+
+                    <div class="flex py-4 xl:py-2 justify-evenly">
                         <button id="btnRule"
-                            class="px-3 py-2 font-semibold bg-gradient-to-t from-blue-400 to-gray-400 rounded-md hover:bg-pink-500 text-white text-xl"
+                            class="px-3 py-2 text-xl font-semibold text-white rounded-md bg-gradient-to-t from-blue-400 to-gray-400 hover:bg-pink-500"
                             onclick="rules();">Rules</button>
                         <button id="newPhoto"
-                            class="px-4 py-2 font-semibold bg-gradient-to-t from-blue-400 to-gray-400 rounded-md hover:bg-blue-700 text-white text-xl">Next Picture</button>
+                            class="px-4 py-2 text-xl font-semibold text-white rounded-md bg-gradient-to-t from-blue-400 to-gray-400 hover:bg-blue-700">Next Picture</button>
                     </div>
                 </div>
                 <!--Right Side-->
-                <div class="flex justify-center items-center bg-blue-400 bg-opacity-60">
-                    <ul id="sortable" class="grid grid-cols-4 inline-block lg:p-12 xl:p-10 list-none ">
-                        <li id="sortable" class="cursor-pointer">
-                        </li>
-                    </ul>
+                <div class="flex items-center justify-center">
+                    <div class=" bg-blue-400 bg-opacity-60 pr-6 md:p-4 xl:p-10 ">
+                        <ul id="sortable" class="grid grid-cols-4 list-none ">
+                            <li id="sortable" class="cursor-pointer">
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div><!--end 2nd bg-->
@@ -65,17 +67,17 @@
             <div> Congratulations!! You got the picture ready.</div>
             <div> MOVES: <span class="stepCount">0</span> </div>
             <div> Time spent: <span class="timeCount">0</span> seconds</span> </div>
-            <div> <button class="px-3 py-2 font-semibold bg-gradient-to-r from-blue-500 to-gray-400 rounded-md hover:bg-blue-500 text-white" type="button" onclick="window.location.reload(true);">Play more</button> </div>
+            <div> <button class="px-3 py-2 font-semibold text-white rounded-md bg-gradient-to-r from-blue-500 to-gray-400 hover:bg-blue-500" type="button" onclick="window.location.reload(true);">Play more</button> </div>
 
         </div>
     </div>
     <script>
         var images = [
-            { src: 'img/game-a.jpg', title: 'Go Live'},
+            {src: 'img/game-a.jpg', title: 'Go Live'},
             {src: 'img/game-b.jpg', title: 'AMI Group'},
-            { src: 'img/game-c.jpg', title: 'Dynamic'},
-            { src: 'img/game-d.jpg', title: 'Origami'},
-            { src: 'img/game-e.jpg', title: 'All Brands'},
+            {src: 'img/game-c.jpg', title: 'Dynamic'},
+            {src: 'img/game-d.jpg', title: 'Origami'},
+            {src: 'img/game-e.jpg', title: 'All Brands'},
         ];
 
         $(function () {

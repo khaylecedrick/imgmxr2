@@ -62,8 +62,8 @@ var imagePuzzle = {
                 'background-image': 'url(' + image.src + ')',
                 'background-size': (gridSize*100) + '%',
                 'background-position': xpos + ' ' + ypos,
-                'width':  500 / gridSize,
-                'height':  275 / gridSize
+                'width':  400 / gridSize,
+                'height':  225 / gridSize
             });
             $('#sortable').append(li);
         }
